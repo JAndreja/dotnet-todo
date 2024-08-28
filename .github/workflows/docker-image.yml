@@ -18,6 +18,11 @@ jobs:
     steps:
     - uses: actions/checkout@v4
 
+    - name: Run code analysis
+      run: dotnet tool install --global dotnet-sonarscanner
+      env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
 
     - name: Analyze code
       run: dotnet sonarscanner begin /k:"JAndreja_dotnet-todo" /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
