@@ -2,8 +2,11 @@
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /source
 COPY . .
-RUN dotnet restore ./src/TodoApi.csproj --disable-parallel
-RUN dotnet publish ./src/TodoApi.csproj -c release -o /app --no-restore
+#RUN dotnet restore ./src/TodoApi.csproj --disable-parallel
+#RUN dotnet publish ./src/TodoApi.csproj -c release -o /app --no-restore
+
+RUN dotnet restore TodoApi.csproj --disable-parallel
+RUN dotnet publish TodoApi.csproj -c release -o /app --no-restore
 
 # Server stage
 FROM mcr.microsoft.com/dotnet/sdk:8.0
