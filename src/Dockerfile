@@ -18,6 +18,7 @@ COPY --from=build /app ./
 
 EXPOSE 8090
 
+# for accessing localy http://localhost:[localport]
 ENV ASPNETCORE_URLS http://*:8090
 
 ENTRYPOINT ["dotnet", "TodoApi.dll"]
