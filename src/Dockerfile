@@ -6,7 +6,7 @@ WORKDIR /source
 # Copy the project files ,restore any dependencies and build the project
 COPY . .
 RUN dotnet restore ./src/TodoApi.csproj --disable-parallel
-RUN dotnet publish TodoApi.csproj -c release -o /app --no-restore
+RUN dotnet publish ./src/TodoApi.csproj -c release -o /app --no-restore
 
 # Server stage
 FROM mcr.microsoft.com/dotnet/sdk:8.0
