@@ -25,7 +25,7 @@ jobs:
 
 
     - name: Analyze code
-      run: dotnet sonarscanner begin /k:"dotnet-todo" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /o:sonar.organization="JAndreja"
+      run: dotnet sonarscanner begin /k:"dotnet-todo" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /o:sonar.organization="jandreja"
     
     - name: Build the Docker image
       run: docker build . --file ./src/Dockerfile --tag todo_container:${{ github.run_number }}
